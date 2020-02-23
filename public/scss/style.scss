@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css?family=Coda:400,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
+@import './spinner';
+
+
+$yellow: #f1cb50ff;
+
+* {
+    box-sizing: border-box;
+  }
+ 
+html, body, p, h1 {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: black;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+section.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.earth-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.main-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    width: 240px;
+    visibility: hidden;
+    opacity: 0;
+ 
+    h1 {
+        font-family: 'Coda', cursive;
+        text-transform: capitalize;
+        font-size: 65px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 90%;
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+        span {
+            margin: 0;
+            padding: 0;
+        }
+
+    }
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 19px;
+        font-weight: normal;
+        color: $yellow;
+        &::first-letter {
+            text-transform: capitalize;
+        }
+    }   
+}
+
+
+#clock {
+    font-size:75px;
+    font-family: 'Coda', cursive;
+    font-weight: 700;
+    transition: color 0.5s ease;
+ 
+}
+#save-btn {
+    outline: none;
+    border: none;
+    color: darken(hotpink, 60%);
+    background:  hotpink;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 15px 40px;
+    width: 100%;
+    text-transform: uppercase;
+    // margin: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#save-btn:hover {
+    background: darken(#da5899, 20%);
+    color: white;
+}
+
+.topScore {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-family: 'Coda', cursive;
+    text-transform: uppercase;
+    font-size: 35px;
+    
+    .score {
+        text-align: center;
+        flex: 1;
+    }
+}
+
+
+
+
+
+
+.save-msg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../img/save-bg.svg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    visibility: hidden;
+    overflow: hidden;
+
+    .save-content {
+        position: absolute;
+        top: 10%;
+        right: 50%;
+        transform: translateX(40%);
+        display: inline-block;
+       
+        h2 {
+            color: white;
+            font-family: 'Coda', cursive;
+            text-transform: uppercase;
+            font-size: 70px;
+            line-height: 1;
+            margin: 0;
+            opacity: 0;
+        }
+        h3 {
+            color: $yellow;
+            text-transform: uppercase;
+            font-size: 32px;
+            margin: 0;
+            line-height: 1;
+            opacity: 0;
+        }
+    }
+    
+    img {
+        position: absolute;
+        bottom: -70px;
+        right: 50%;
+        transform: translateX(60%);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+.doom-msg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../img/doom_bg.svg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    visibility: hidden;
+    overflow: hidden;
+
+    .doom-content {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        display: inline-block;
+       
+        h2 {
+            color: white;
+            font-family: 'Coda', cursive;
+            text-transform: uppercase;
+            font-size: 70px;    
+            line-height: 1;
+            margin: 0;
+            opacity: 0;
+        }
+        h3 {
+            color: $yellow;
+            text-transform: uppercase;
+            font-size: 32px;
+            margin: 0;
+            line-height: 1;
+            opacity: 0;
+        }
+    }
+    
+
+    .doom-smoke {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 120%;
+        object-fit: cover;
+        min-height: 800px;
+        opacity: 0;
+    }
+    .doom-spaceship {
+        position: absolute;
+        width: 300px;
+        bottom: 0;
+        right: 0%;
+        transform: translateX(50%);
+        opacity: 0;
+    }
+}
+
+
+.warning {
+    color: $yellow;
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+    .save-msg {
+        .save-content {
+            // bottom: 50%;
+            // transform: translateX(40%);
+            h2 {
+                font-size: 80px;
+            }
+            h3 {
+                font-size: 40px;
+            }
+        }
+        
+        img {
+            transform: translateX(70%);
+            bottom: 0px;
+        }
+    }
+
+        
+    .doom-msg {
+        .doom-content {
+            top: 5%;
+            left: 20%;
+            h2 {
+                font-size: 80px;    
+            }
+            h3 {
+                font-size: 40px;
+            }
+        }
+        
+        .doom-spaceship {
+            right: 50%;
+            transform: translateX(130%);
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .main-text {
+        left: 3%;
+        transform: translate(0,-50%);
+        max-width: 250px;
+        h1 {
+            font-size: 65px;
+        }
+        p {
+            font-size: 19px;
+        }   
+    }
+}
