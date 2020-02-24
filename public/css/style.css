@@ -224,7 +224,6 @@ section.container {
   right: 50%;
   -webkit-transform: translateX(40%);
           transform: translateX(40%);
-  display: inline-block;
 }
 
 .save-msg .save-content h2 {
@@ -246,13 +245,26 @@ section.container {
   opacity: 0;
 }
 
-.save-msg img {
+.save-msg .astronaut {
   position: absolute;
   bottom: -70px;
   right: 50%;
   -webkit-transform: translateX(60%);
           transform: translateX(60%);
-  opacity: 0;
+}
+
+.save-msg .smoke-up {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.save-msg .smoke-down {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 70%;
 }
 
 .doom-msg {
@@ -324,7 +336,7 @@ section.container {
   .save-msg .save-content h3 {
     font-size: 40px;
   }
-  .save-msg img {
+  .save-msg .astronaut {
     -webkit-transform: translateX(70%);
             transform: translateX(70%);
     bottom: 0px;
@@ -358,6 +370,18 @@ section.container {
   }
   .main-text p {
     font-size: 19px;
+  }
+  .save-msg .smoke-up {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60%;
+  }
+  .save-msg .smoke-down {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40%;
   }
 }
 /*# sourceMappingURL=style.css.map */

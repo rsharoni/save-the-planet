@@ -143,7 +143,6 @@ section.container {
         top: 10%;
         right: 50%;
         transform: translateX(40%);
-        display: inline-block;
        
         h2 {
             color: white;
@@ -164,12 +163,23 @@ section.container {
         }
     }
     
-    img {
+    .astronaut {
         position: absolute;
         bottom: -70px;
         right: 50%;
         transform: translateX(60%);
-        opacity: 0;
+    }
+    .smoke-up {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .smoke-down {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 70%;
     }
 }
 
@@ -252,7 +262,7 @@ section.container {
             }
         }
         
-        img {
+        .astronaut {
             transform: translateX(70%);
             bottom: 0px;
         }
@@ -290,5 +300,20 @@ section.container {
         p {
             font-size: 19px;
         }   
+    }
+
+    .save-msg {
+        .smoke-up {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60%;
+        }
+        .smoke-down {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 40%;
+        }
     }
 }

@@ -8,12 +8,16 @@ window.addEventListener('load', function () {
         mainTextEl = document.querySelector('.main-text'),
         saveMsgEl = document.querySelector('.save-msg'),
         saveContentEl = saveMsgEl.querySelector('.save-content'),
-        saveMsgImgEl = saveMsgEl.querySelector('img'),
+        saveMsgAstronautEl = saveMsgEl.querySelector('.astronaut'),
+        saveMsgSmokeUpEl = saveMsgEl.querySelector('.smoke-up'),
+        saveMsgSmokeDownEl = saveMsgEl.querySelector('.smoke-down'),
         doomMsgEl = document.querySelector('.doom-msg'),
         doomContentEl = doomMsgEl.querySelector('.doom-content'),
         doomMsgSmokeEl = doomMsgEl.querySelector('.doom-smoke'),
         doomMsgSpaceshipEl = doomMsgEl.querySelector('.doom-spaceship'),
         scoreEl = document.querySelector('.score');
+
+    console.log(saveMsgAstronautEl);
 
     // disble stop animation on window blur
     // the animation will alywas run
@@ -29,9 +33,11 @@ window.addEventListener('load', function () {
     // gsap timeline animations
     const saveMsgTl = gsap.timeline({ paused: true, repeat: 1, repeatDelay: 2, yoyo: true });
     saveMsgTl.fromTo(saveMsgEl, { y: '100%' }, { y: '0%', duration: 1, autoAlpha: 1, ease: "elastic.out(1, 1)" })
-        .set(saveMsgImgEl, { opacity: 1 })
-        .fromTo(saveMsgImgEl, { y: '100%', rotation: 10, transformOrigin: '50% 100%', scale: 2 }, { y: 0, rotation: 0, scale: 1, duration: 1, ease: "power4.out" })
-        .fromTo(saveContentEl.children, { y: -50, opacity: 0 }, { opacity: 1, y: 0, duration: 1, ease: "back.out(1)", stagger: 0.3 }, "-=0.5").reverse();
+        .set(saveMsgAstronautEl, { opacity: 1 })
+        .from(saveMsgSmokeUpEl, { x: "-50%", opacity: 0, scale: 2, duration: 1, ease: "power4.out" })
+        .from(saveMsgSmokeDownEl, { x: "50%", opacity: 0, scale: 2, duration: 1, ease: "power4.out" }, "-=1")
+        .fromTo(saveMsgAstronautEl, { y: '170%', rotation: 10, transformOrigin: '50% 100%', scale: 2 }, { y: 0, rotation: 0, scale: 1, duration: 1, ease: "power4.out" }, "-=0.5")
+        .fromTo(saveContentEl.children, { y: -50, opacity: 0 }, { opacity: 1, y: 0, duration: 1, ease: "back.out(1)", stagger: 0.3 }, "-=0.6").reverse();
 
     const doomMsgTl = gsap.timeline({ paused: true, repeat: 1, repeatDelay: 2, yoyo: true });
     doomMsgTl.fromTo(doomMsgEl, { y: '100%' }, { y: '0%', duration: 1, autoAlpha: 1, ease: "elastic.out(1, 1)" })
@@ -83,7 +89,6 @@ window.addEventListener('load', function () {
     })
 
     earthVideo.addEventListener('ended', function () {
-        console.log('video ended');
         this.currentTime = 4;
         this.play();
     }, false);
