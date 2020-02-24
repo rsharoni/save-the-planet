@@ -1,5 +1,4 @@
 'use strict';
-// var socketServer = require('./modules/sockets').socketServer(server);
 const { getScore, setScore } = require('../services/score');
 
 // Update the count down every 1 second
@@ -10,7 +9,7 @@ exports.startClock = () => {
     const io = require('../services/sockets').io();
 
     // Set the date we're counting down to
-    const countDownDate = new Date().setHours(new Date().getHours() + 11);
+    const countDownDate = new Date().setHours(new Date().getHours() + 1);
 
     clockInterval = setInterval(async function () {
         // Get today's date and time
