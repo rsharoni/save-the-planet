@@ -58,7 +58,7 @@ window.addEventListener('load', function () {
 
     // event from the server
     socket.on('updateScore', function (score) {
-        if (score < 10 && score > 0) {
+        if (score < 10) {
             score = `0${score}`;
         }
         scoreEl.textContent = score;

@@ -11,11 +11,12 @@ exports.io = function () {
 exports.initialize = function (server) {
     io = sio(server);
     io.on('connection', async function (socket) {
-        // console.log('a user connected');
+        console.log('a user connected');
         io.emit('updateScore', await getScore());
 
         // save button pushed
         socket.on('save', async function () {
+            console.log('save');
             stopClock();
             startClock();
             await setScore(await getScore() + 1);
