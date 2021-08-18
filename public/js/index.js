@@ -17,7 +17,6 @@ window.addEventListener('load', function () {
         doomMsgSpaceshipEl = doomMsgEl.querySelector('.doom-spaceship'),
         scoreEl = document.querySelector('.score');
 
-    console.log(saveMsgAstronautEl);
 
     // disble stop animation on window blur
     // the animation will alywas run
